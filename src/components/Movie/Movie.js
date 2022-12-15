@@ -15,6 +15,9 @@ const Movie = (props) => {
         return dispatch(cleanDetail());
     }, [dispatch, movieId]);
    
+    let rating = Math.round(movieDetail.imdbRating);
+    console.log(rating);
+
     return (
         <div className="cont-padre">
             {
@@ -43,15 +46,20 @@ const Movie = (props) => {
                         <div className="div-caracteristica-sinop"> 
                             <p className="car-3">{movieDetail.Plot}</p>
                         </div>
-                        <p>Clasificacion {movieDetail.Rated}</p>
-                        <p>Generos {movieDetail.Genre}</p>
-                        <p>Actores {movieDetail.Actors}</p>
-                        <p>Tipo {movieDetail.Type === "movie"? "Pelicula" : "Serie"}</p>
-                        <p>Premios/Nominaciones {movieDetail.Awards}</p>
-                        <p>Temporadas Totales {!movieDetail.totalSeasons || movieDetail.totalSeasons === "N/A"  ? "No hay temporadas" : movieDetail.totalSeasons}</p>
-                        <p>imdbRating {movieDetail.imdbRating}</p>
-                        <p>imdbVotes {movieDetail.imdbVotes}</p>
-                    </div>
+                        <div className="flex-div">
+                            <div className="detail-p">Clasificacion <p className="in-detail-p">{movieDetail.Rated}</p></div>
+                            <div className="detail-p">Generos <p className="in-detail-p">{movieDetail.Genre}</p></div>
+                            <div className="detail-p">Actores <p className="in-detail-p">{movieDetail.Actors}</p></div>
+                            <div className="detail-p">Tipo <p className="in-detail-p">{movieDetail.Type === "movie"? "Pelicula" : "Serie"}</p></div>
+                            <div className="detail-p">Premios/Nominaciones <p className="in-detail-p">{movieDetail.Awards}</p></div>
+                            <div className="detail-p">Temporadas Totales <p className="in-detail-p">{!movieDetail.totalSeasons || movieDetail.totalSeasons === "N/A"  ? "No hay temporadas" : movieDetail.totalSeasons}</p></div>
+                            <div className="detail-p">Votos de IMDB <p className="in-detail-p">{movieDetail.imdbVotes}</p></div>
+                            <div>
+                                <div className="detail-pepe">Rating de IMDB<p className="in-detail-p"></p></div>
+                                <div className="imdb-rating"><div className="into-rating" style={{width: `${rating}0%`}}>{`${rating}0%`}</div></div>
+                            </div>
+                        </div>
+                        </div>
                 </div> 
                 : 
                 <h2>CARGANDO TU PELICULA...</h2>
