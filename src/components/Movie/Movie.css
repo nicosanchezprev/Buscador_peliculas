@@ -116,8 +116,9 @@
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-top: 50px;
-  row-gap: 30px;
+  margin-top: 30px;
+  margin-right: 20px;
+  row-gap: 10px;
   column-gap: 50px;
   padding: 10px;
   border-radius: 8px;
@@ -126,8 +127,8 @@
 .detail-p{
   font-size: 18px;
   font-weight: 700;
-  box-shadow: 0px 0px 10px white;
-  padding: 16px;
+  /* box-shadow: 0px 0px 10px white; */
+  /* padding: 16px; */
   border-radius: 8px;
 }
 
